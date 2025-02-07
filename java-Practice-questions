@@ -1,6 +1,8 @@
+##Java-Practice_Programs
 
-## 1) SUM OF ELEMENTS
-```java[]
+
+##1) SUM OF ELEMENTS
+````java[]
 
 import java.util.*;
 public class Main
@@ -231,6 +233,7 @@ After Swapping
 ````
 
 ## 6) CHECK IF A GIVEN NUMBER IS PRESENT IN ARRAY
+
 ````java[]
 
 import java.util.*;
@@ -1100,6 +1103,14 @@ After moving all negative numbers to the end:
 ````
 
 ## 
+
+
+
+
+    
+
+
+
 
 
 
