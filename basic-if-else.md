@@ -169,6 +169,7 @@ public class year
 OUTOUT:
 2020
 It is a leap year.
+````
 
 ## 7.Find the greatest of four numbers.
 
@@ -373,7 +374,236 @@ OUTPUT:
 It is not a perfect number
 
 ````
-##13.Find whether a number is Armstrong or not.
+## 13.Find whether a number is Armstrong or not.
+````java[]
+import java.util.*;
+public class armstrong
+{
+    public static  void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a;
+        int count = 0;
+        int temp = n;
+        int t = n;
+        while(n!=0)
+        {
+            a=n%10;
+            count++;
+            n=n/10;
+        }
+        //System.out.println(count);
+        double sum = 0;
+        double result = 0;
+
+        while(temp!=0)
+        {
+            a=temp%10;
+            result = Math.pow(a,count);
+            temp = temp/10;
+            sum = sum + result;
+        }
+        //System.out.println(sum);
+        if(t == sum)
+        {
+            System.out.println("It is a armstrong");
+        }
+        else {
+            System.out.println("It is not a armstrong");
+        }
+    }
+}
+
+OUTPUT:
+4524
+It is not a armstrong
+
+````
+
+## 14.Calculate the factorial of a number using recursion.
+
+````java[]
+
+import java.util.*;
+public class factorial
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int fact = 1;
+        for(int i=1;i<n;i++)
+        {
+            fact = fact * i;
+        }
+        System.out.print(fact);
+    }
+}
+
+OUTPUT:
+6
+120
+````
+
+## 15.Check whether a number is an automorphic number.
+
+````java[]
+import java.util.*;
+public class automorphic
+{
+    public static void  main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a = n*n;
+        System.out.println(a);
+
+        while(n>0)
+        {
+            if(n%10 != a%10)
+            {
+                System.out.println("Not an automorphic number");
+                break;
+            }
+            n=n/10;
+            a=a/10;
+
+        }
+        if(n==0)
+        {
+            System.out.println("It is an automorphic number");
+        }
+
+    }
+}
+
+Output:
+5
+25
+It is an automorphic number.
+
+````
+## 16.Find if a number is a Fibonacci number.
+
+````java[]
+import  java.util.*;
+public class fibnocci {
+    public static  void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a=0;
+        int b=1;
+        System.out.print(a+" ");
+        System.out.print(b+" ");
+        for(int i=0;i<=n;i++)
+        {
+            int c = a+b;
+            a=b;
+            b=c;
+            System.out.print(c + " ");
+        }
+    }
+}
+
+OUTPUT:
+
+5
+0 1 1 2 3 5 8 13
+
+````
+## 17.Determine if a number is a perfect square.
+
+````java[]
+
+import java.util.*;
+import java.lang.*;
+public class perfectsquare {
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int sqrt = (int)Math.sqrt(n);
+        int b = sqrt*sqrt;
+        if(n == b)
+        {
+            System.out.println("It is a perfect square");
+        }
+        else {
+            System.out.println("It is not a perfect square");
+        }
+
+    }
+}
+
+Output:
+4
+It is a perfect square.
+
+````
+
+## 18.Count the number of digits in a number.
+
+````java[]
+
+import java.util.*;
+public class numberofdigits {
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int count = 0;
+        while(n>0)
+        {
+            int a = n%10;
+            count++;
+            n = n/10;
+        }
+        System.out.println("The number of digits present is " + count);
+    }
+}
+
+Output:
+12546987
+The number of digits present is 8
+````
+
+## 19.Check whether a string is a palindrome.
+
+````java[]
+
+import java.util.*;
+public class palindromestring {
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        String reversed = " ";
+        for(int i=str.length()-1;i>=0;i--)
+        {
+            reversed += str.charAt(i);
+        }
+        if(str.equals(reversed))
+        {
+            System.out.println("It is a palindrome String");
+        }
+        else {
+            System.out.println(("It is not a palindrome String"));
+        }
+    }
+}
+OUTPUT:
+hello
+It is not a palindrome String
+
+````
+## 20.Check if a string is an anagram of another string.
+
+````java
+
+
+
 
 
 
