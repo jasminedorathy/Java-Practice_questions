@@ -1155,6 +1155,7 @@ Enter the value
 ````
 
 ## 35.Print prime numbers within a range using nested conditions.
+````java[]
 
 import java.util.*;
 import java.lang.*;
@@ -1228,5 +1229,6 @@ OUTPUT:
 
 L
 Given character is Upper case
+````
 
 
