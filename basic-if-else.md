@@ -601,9 +601,632 @@ It is not a palindrome String
 ## 20.Check if a string is an anagram of another string.
 
 ````java
+import java.util.*;
+public class anagram
+{
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the String");
+        String str1=s.next();
+        System.out.println("Ënter the string ");
+        String str2=s.next();
+        str1=str1.toLowerCase();
+        str2=str2.toLowerCase();
+        if(str1.length()!=str2.length())
+        {
+            System.out.println("both String not anagram");
+
+        }
+        else{
+            char[] String1=str1.toCharArray();
+            char[] String2=str2.toCharArray();
+
+            Arrays.sort(String1);
+            Arrays.sort(String2);
+            if(Arrays.equals(String1,String2)==true){
+                System.out.println("both String is Anagram");
+            }
+            else{
+                System.out.println("both String not Anagram");
+            }
+        }
+    }
+}
+
+Output:
+Ënter the String
+jasmine
+Ënter the string 
+jasmine
+both String is Anagram
+
+````
+## 21.Check whether a number is a prime number within a range. 
+
+````java[]
+
+import java.util.*;
+import java.lang.*;
+public class primenumber{
+    public static boolean isPrime(int n)
+    {
+        if(n==1){
+            return false;
+        }
+        for(int i=2;i<=n/2;i++){
+            if(n%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void range(int start,int end){
+        System.out.println("Prime number between "+ start +" to "+end);
+        for(int i=start;i<end;i++){
+            if(isPrime(i)){
+                System.out.print(i+" ");
+            }
+        }
+        System.out.println();
+
+    }
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the Range");
+        int start=s.nextInt();
+        int end=s.nextInt();
+        range(start,end);
+
+
+    }
+}
+
+OUTPUT:
+Enter the Range
+1
+10
+Prime number between 1 to 10
+2 3 5 7
+
+````
+## 22.Find the largest number among n numbers using a nested if-else. 
+
+````java[]
+
+import java.util.*;
+public class largestnumber
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the value of n");
+        int n=sc.nextInt();
+        System.out.println("Enter the element");
+        int max=sc.nextInt();
+        for(int i=1;i<n;i++){
+            int ele=sc.nextInt();
+            if(max<ele){
+                max=ele;
+            }
+        }
+        System.out.println("Largest Element "+max);
+    }
+}
+
+OUTPUT:
+
+Enter the value of n
+5
+Enter the element
+80
+42
+54
+96
+75
+Largest Element 96
+
+````
+## 23.Print all prime numbers in a range using nested loops. 
+
+````java[]
+import java.util.*;
+import java.lang.*;
+public class primenumber{
+    public static boolean isPrime(int n)
+    {
+        if(n==1){
+            return false;
+        }
+        for(int i=2;i<=n/2;i++){
+            if(n%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void range(int start,int end){
+        System.out.println("Prime number between "+ start +" to "+end);
+        for(int i=start;i<end;i++){
+            if(isPrime(i)){
+                System.out.print(i+" ");
+            }
+        }
+        System.out.println();
+
+    }
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the Range");
+        int start=s.nextInt();
+        int end=s.nextInt();
+        range(start,end);
+
+
+    }
+}
+
+OUTPUT:
+Enter the Range
+1
+10
+Prime number between 1 to 10
+2 3 5 7
+
+````
+## 24.Find all the divisors of a number. 
+
+````java[]
+import java.util.*;
+public class divisors
+{
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the value of n");
+        int n=s.nextInt();
+        System.out.println("Divisor of a number");
+        for(int i=1;i<=n;i++){
+            if(n%i==0){
+                System.out.print(i+" ");
+            }
+        }
+    }
+}
+
+OUTPUT:
+Enter the value of n
+8
+Divisor of a number
+1 2 4 8 
+
+````
+## 25.Find the GCD and LCM of two numbers. 
+
+````java[]
+
+import java.util.*;
+public class LCMandGCD
+{
+    public static int gcd(int a,int b)
+    {
+        while(a!=b){
+            if(a>b){
+                a-=b;
+            }
+            else{
+                b-=a;
+            }
+        }
+        return a;
+    }
+    public static int lcm(int n1,int n2,int gcdvalue){
+        return Math.abs(n1*n2)/gcdvalue;
+    }
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the number");
+        int a=s.nextInt();
+        int b=s.nextInt();
+        System.out.println("gcd of " +a+" and "+b);
+        int gcdvalue=gcd(a,b);
+        System.out.println(gcdvalue);
+        System.out.println("lcm of " +a+" and "+b);
+        int lcmvalue=lcm(a,b,gcdvalue);
+        System.out.println(lcmvalue);
+
+    }
+}
+
+Output:
+Enter the number
+45
+54
+gcd of 45 and 54
+9
+lcm of 45 and 54
+270
+
+````
+
+## 26.Check if a number is a perfect number within a range.
+
+````java[]
+
+import java.util.*;
+import java.lang.*;
+public class perfectnumber{
+    public static boolean isPerfect(int n){
+        int a=(int)Math.sqrt(n);
+        if((a*a)==n){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public static void range(int start,int end){
+        System.out.println("Perfect number between "+ start +" to " +end);
+        for(int i=start;i<end;i++){
+            if(isPerfect(i)){
+                System.out.print(i+" ");
+            }
+        }
+        System.out.println();
+
+    }
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the Range");
+        int start=s.nextInt();
+        int end=s.nextInt();
+        range(start,end);
+
+
+    }
+}
+Output:
+Ënter the Range
+1
+5
+Perfect number between 1 to 5
+1 4
+````
+
+## 27.Check whether an integer is positive, negative, or zero. 
+
+````java[]
+import java.util.*;
+public class positivenegative
+{
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the value");
+        int n=s.nextInt();
+        if(n>0){
+            System.out.println(n +" is positive");
+        }
+        else if(n==0)
+        {
+            System.out.println(n+" is zero");
+        }
+        else{
+            System.out.println(n+" is negative");
+        }
+    }
+
+}
+
+Enter the value
+23
+23 is positive
+
+````
+
+## 28.Determine the type of a triangle based on its angles. 
+
+````java[]
+import java.util.*;
+public class triangle {
+
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the First Angle");
+        int n=sc.nextInt();
+        System.out.println("Enter the Second Angle");
+        int m=sc.nextInt();
+        System.out.println("Enter the Third Angle");
+        int o=sc.nextInt();
+        int sum=n+m+o;
+        if(sum==180) {
+            if (n < 90 && m < 90 && o < 90) {
+                System.out.println(" Acute Triangle ");
+            } else if (n == 90 || m == 90 || o == 90) {
+                System.out.println(" Right Triangle ");
+            } else {
+                System.out.println(" Obtuse Triangle ");
+            }
+        }
+        else
+        {
+                System.out.println("Invalid");
+        }
+
+    }
+
+}
+Output:
+Enter the First Angle
+100
+Enter the Second Angle
+40
+Enter the Third Angle
+40
+ Obtuse Triangle
+
+````
+
+## 29.Find whether a number is a Fibonacci number within a range. 
+
+````java[]
+import java.util.*;
+import java.lang.*;
+public class fibonorange{
+    public static boolean fib(int n){
+        if(n==0 || n==1){
+            return true;
+        }
+        int a=0,b=1,c=0;
+        while(c<n){
+
+            c=a+b;
+            a=b;
+            b=c;
+
+        }
+        return c==n;
+    }
+    public static void range(int start,int end){
+        System.out.println("Fibonacci number between "+ start +" to " +end);
+        for(int i=start;i<end;i++){
+            if(fib(i)){
+                System.out.print(i+" ");
+            }
+        }
+        System.out.println();
+
+    }
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the Range");
+        int start=s.nextInt();
+        int end=s.nextInt();
+        range(start,end);
+
+
+    }
+}
+
+
+OUTPUT:
+
+Ënter the Range
+40
+80
+Fibonacci number between 40 to 80
+55
+
+````
+
+## 30.Print all leap years within a given range. 
+
+````java[]
+
+import java.util.*;
+import java.lang.*;
+public class leaprange{
+    public static boolean leap(int n){
+        if(n%4 ==0 || (n%400==0 && (n%100 !=0))){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public static void range(int start,int end){
+        System.out.println("Leap Year  between "+ start +" to " +end);
+        for(int i=start;i<end;i++){
+            if(leap(i)){
+                System.out.print(i+" ");
+            }
+        }
+        System.out.println();
+
+    }
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the Range");
+        int start=s.nextInt();
+        int end=s.nextInt();
+        range(start,end);
+
+
+    }
+}
+
+Output:
+
+Ënter the Range
+2005
+2060
+Leap Year  between 2005 to 2060
+2008 2012 2016 2020 2024 2028 2032 2036 2040 2044 2048 2052 2056
+
+````
+## 31.Check whether a string is a valid palindrome. 
+
+````java[]
+import java.util.*;
+public class palindromestring {
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        String reversed = " ";
+        for(int i=str.length()-1;i>=0;i--)
+        {
+            reversed += str.charAt(i);
+        }
+        if(str.equals(reversed))
+        {
+            System.out.println("It is a palindrome String");
+        }
+        else {
+            System.out.println(("It is not a palindrome String"));
+        }
+    }
+}
+OUTPUT:
+hello
+It is not a palindrome String
+
+````
+## 32.Check for a specific pattern in a string using if-else. 
+
+````java[]
 
 
 
+````
+## 33..Check if a given day is a weekend or weekday. 
 
+````java[]
+
+import java.util.*;
+public class days
+{
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the day");
+        String day=s.next().toLowerCase();
+        if(day.equals("sunday") || day.equals("saturday")){
+            System.out.println("Weekend");
+        }
+        else{
+            System.out.println("Weekday");
+        }
+
+
+    }
+}
+
+Output:
+
+Enter the day
+Monday
+Weekday
+
+````
+## 34.Check if a number is divisible by 7 or 11. 
+
+````java[]
+import java.util.*;
+public class divisible7 {
+
+
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the value");
+        int n=s.nextInt();
+        if(n%7==0 && n%11==0){
+            System.out.println(n +" is Divisible by 7 and 11");
+        }
+        else{
+            System.out.println(n+" is not Divisible by 7 and 11");
+        }
+    }
+
+}
+
+Output:
+
+Enter the value
+75
+75 is not Divisible by 7 and 11
+
+````
+
+## 35.Print prime numbers within a range using nested conditions.
+
+import java.util.*;
+import java.lang.*;
+public class primenumber{
+    public static boolean isPrime(int n)
+    {
+        if(n==1){
+            return false;
+        }
+        for(int i=2;i<=n/2;i++){
+            if(n%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void range(int start,int end){
+        System.out.println("Prime number between "+ start +" to "+end);
+        for(int i=start;i<end;i++){
+            if(isPrime(i)){
+                System.out.print(i+" ");
+            }
+        }
+        System.out.println();
+
+    }
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the Range");
+        int start=s.nextInt();
+        int end=s.nextInt();
+        range(start,end);
+
+
+    }
+}
+
+OUTPUT:
+Enter the Range
+1
+10
+Prime number between 1 to 10
+2 3 5 7
+
+````
+## 36.Identify if an alphabet character is uppercase, lowercase, or non-alphabet.
+
+````java[]
+import java.util.*;
+public class alpha
+{
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        char ch=s.next().charAt(0);
+
+        if(ch>='A' && ch<='Z'){
+            System.out.println("Given character is Upper case");
+        }
+        else if(ch>='a' && ch<='z'){
+            System.out.println("Given character is Lower case");
+        }
+        else{
+            System.out.println("Non alphabet");
+        }
+
+
+    }
+}
+
+OUTPUT:
+
+L
+Given character is Upper case
 
 
