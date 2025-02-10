@@ -1092,8 +1092,30 @@ It is not a palindrome String
 ## 32.Check for a specific pattern in a string using if-else. 
 
 ````java[]
+import java.util.*;
+public class pattern{
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the string");
+        String str=s.nextLine();
+        System.out.println("Enter the pattern");
+        String pat=s.nextLine();
+        if(str.contains(pat)){
+            System.out.println("pattern found");
+        }
+        else{
+            System.out.println("pattern Not found");
+        }
+    }
+}
 
+OUTPUT:
 
+Enter the string
+jasmine
+Enter the pattern
+jas
+pattern found
 
 ````
 ## 33..Check if a given day is a weekend or weekday. 
@@ -1230,5 +1252,171 @@ OUTPUT:
 L
 Given character is Upper case
 ````
+
+## 37.Determine if a given number is a valid credit card number. 
+
+````java[]
+import java.util.*;
+public class creditcard
+{
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the card number");
+        long num=s.nextLong();
+        long sum=0;
+        boolean seconddigit=false;
+        while(num>0){
+            long digit=num%10;
+            num/=10;
+            if(seconddigit){
+                digit=digit*2;
+                if(digit>=10){
+                    digit-=9;
+                }
+                sum+=digit;
+                seconddigit=!seconddigit;
+            }
+        }
+        if(sum%10==0){
+            System.out.println("valid card number");
+        }
+        else{
+            System.out.println("not valid number");
+        }
+    }
+}
+
+Output:
+
+Enter the card number
+12541589554645
+valid card number
+
+````
+
+## 38. Check if a given date is valid or invalid.
+
+````java[]
+
+import java.util.*;
+import java.time.LocalDate;
+public class date
+{
+    
+    public static boolean valid(int date,int month,int year){
+        try{
+        LocalDate.of(year,month,date);
+        return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+	public static void main(String[] args) {
+	 Scanner s=new Scanner(System.in);
+	 System.out.println("Enter the year");
+	 int year=s.nextInt();
+	  System.out.println("Enter the month");
+	 int month=s.nextInt();
+	  System.out.println("Enter the date");
+	 int date=s.nextInt();
+	 
+	 if(valid(date,month,year)){
+	     System.out.println("valid date");
+	 }
+	 else{
+	     System.out.println(" Not valid date");
+	 }
+	 
+	}	
+}
+
+Output:
+Enter the year
+2025
+Enter the month
+01
+Enter the date
+15
+valid date
+
+````
+
+## 39.Find the day of the week for a given date. 
+
+````java[]
+
+import java.util.*;
+import java.time.LocalDate;
+import java.time.DayOfWeek;
+public class Main
+{
+    
+
+	public static void main(String[] args) {
+	 Scanner s=new Scanner(System.in);
+	 System.out.println("Enter the year");
+	 int year=s.nextInt();
+	  System.out.println("Enter the month");
+	 int month=s.nextInt();
+	  System.out.println("Enter the date");
+	 int day=s.nextInt();
+	 
+	 try{
+	 LocalDate date=LocalDate.of(year,month,day);
+	 DayOfWeek week=date.getDayOfWeek();
+	 System.out.println("Day of the week "+week);
+	 }
+	 catch(Exception e){
+	     System.out.println("Invalid date");
+	 }
+	}	
+}
+
+Output:
+Enter the year
+2025
+Enter the month
+08
+Enter the date
+30
+Day of the week SATURDAY
+
+````
+## 40. Print multiplication tables for a given number using nested loops. 
+
+````java[]
+
+import java.util.*;
+public class multiplicationtable
+{
+    public static void main(String args[])
+    {
+        Scanner s = new Scanner(System.in);
+
+        int n = s.nextInt();
+        for(int i=1;i<=10;i++)
+        {
+            System.out.println(n + "*" + i + "=" + (i*n));
+        }
+
+    }
+}
+
+Output:
+10
+10*1=10
+10*2=20
+10*3=30
+10*4=40
+10*5=50
+10*6=60
+10*7=70
+10*8=80
+10*9=90
+10*10=100
+
+````
+
 
 
