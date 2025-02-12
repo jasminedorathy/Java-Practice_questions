@@ -289,7 +289,7 @@ OUTPUT:
 1 4 6 4 1
 
 ````
-129.Print a number pattern with asterisks using nested loops. 
+## 129.Print a number pattern with asterisks using nested loops. 
 
 ````java[]
 
