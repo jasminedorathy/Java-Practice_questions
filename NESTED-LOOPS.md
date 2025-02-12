@@ -1,4 +1,4 @@
-NESTED LOOPS PROGRAMS
+## NESTED LOOPS PROGRAMS
 
 ## 121.Print a multiplication table using nested loops. 
 
