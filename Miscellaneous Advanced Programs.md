@@ -433,22 +433,75 @@ Email: hdfshfgv@gmail.com
 ````
 ## 191.Implement a voting system using classes and loops. 
 ````java[]
+import java.util.*;
+class Vote{
+    String[] candidate= {"Candidate A","Candidate B","Candidate C"};
+    int[] voting=new int[candidate.length];
+    public void votingCandidate(int choice) {
+        if(choice>=1 && choice<=candidate.length) {
+            voting[choice-1]++;
+            System.out.println("Successfully Voted by "+candidate[choice-1]);
+        }
+        else {
+            System.out.println("Not voted");
+        }
+    }
+    public void display() {
+        for(int i=0;i<candidate.length;i++) {
+            System.out.println(candidate[i]+": "+ voting[i]+" voted");
+        }
+    }
+}
+public class prg47 {
 
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+         Vote v=new Vote();
+        int choice;
+        do {
+            System.out.println("  WELCOME TO THE VOTING SYSTEM  ");
+            System.out.println(" 1.Candidate 1");
+            System.out.println(" 2.Candidate 2");
+            System.out.println(" 3.Candidate 3");
+            System.out.println(" 4.Display");
+            System.out.println(" 5.Exit");
 
+            System.out.println("Enter your choice");
+            choice=s.nextInt();
 
+            if (choice >= 1 && choice <= 3) {
+                v.votingCandidate(choice);
+            } else if (choice == 4) {
+                v.display();
+            } else if (choice != 5) {
+                System.out.println("Invalid option. Please try again.");
+            }
+        } while (choice != 5);
+        System.out.println("Thank you for voting.");
 
+    }
 
+}
 
-
-
-
-
-
-
-
-
-
-
+OUTPUT:
+ WELCOME TO THE VOTING SYSTEM  
+ 1.Candidate 1
+ 2.Candidate 2
+ 3.Candidate 3
+ 4.Display
+ 5.Exit
+Enter your choice
+2
+Successfully Voted by Candidate B
+  WELCOME TO THE VOTING SYSTEM  
+ 1.Candidate 1
+ 2.Candidate 2
+ 3.Candidate 3
+ 4.Display
+ 5.Exit
+Enter your choice
+5
+Thank you for voting.
 
 ````
 ## 192.Create a program to convert numbers to words. 
