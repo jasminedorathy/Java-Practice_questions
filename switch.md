@@ -396,16 +396,53 @@ Multiplication: 330
 ````
 ## 49. Convert temperature from Celsius to Fahrenheit or vice versa using switch. 
 ````java[]
+import java.util.*;
+public class prg9 {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("*****Conversion of Celisus to Fahrenheit and vice versa*****");
+        System.out.println("1. Convert Celsius to Fahrenheit");
+        System.out.println("2. Convert Fahrenheit to Celisus");
+        System.out.println("3. Exit");
 
 
+        System.out.println("Enter you choice:");
+        int choice=sc.nextInt();
+        switch(choice) {
+            case 1:
+                System.out.print("Enter temperature in Celsius: ");
+                double celsius = sc.nextDouble();
+                double fahrenheit = (celsius * 9/5) + 32;
+                System.out.println("Temperature in Fahrenheit" + fahrenheit);
+                break;
+            case 2:
+                System.out.print("Enter temperature in fahrenheit: ");
+                fahrenheit = sc.nextDouble();
+                celsius = (fahrenheit - 32) * 5/9;
+                System.out.println("Temperature in celsius" + celsius);
+                break;
+            case 3:
+                System.out.println("Exit");
+                break;
 
 
+            default:
+                System.out.println("Invalid choice");
 
+        }
+    }
+}
 
-
-
-
-
+OUTPUT:
+*****Conversion of Celisus to Fahrenheit and vice versa*****
+1. Convert Celsius to Fahrenheit
+2. Convert Fahrenheit to Celisus
+3. Exit
+Enter you choice:
+2
+Enter temperature in fahrenheit: 224
+Temperature in celsius106.66666666666667
 
 
 
@@ -893,8 +930,50 @@ YELLOW: WAIT
 ````java[]
 
 
+import java.util.*;
+public class prg20 {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("*****Solving the quadratic equation using thr formula*****");
+        System.out.print("Enter coefficient a: ");
+        double a = sc.nextDouble();
+        System.out.print("Enter coefficient b: ");
+        double b = sc.nextDouble();
+        System.out.print("Enter coefficient c: ");
+        double c = sc.nextDouble();
+
+        double d = b * b - 4 * a * c;
+
+        int discase = (d > 0) ? 1 : (d == 0) ? 2 : 3;
+        switch(discase) {
+            case 1:
+                double root1 = (-b + Math.sqrt(d)) / (2 * a);
+                double root2 = (-b - Math.sqrt(d)) / (2 * a);
+                System.out.println("Two real and distinct roots: " + root1 + " and " + root2);
+                break;
+            case 2:
+                double root = -b / (2 * a);
+                System.out.println("One real and equal root: " + root);
+                break;
+            case 3:
+                System.out.println("It is a complex number and the solutiion is not a real root.");
+                break;
 
 
+            default:
+                System.out.println("Invalid choice");
+
+        }
+    }
+}
+OUTPUT:
+
+*****Solving the quadratic equation using thr formula*****
+Enter coefficient a: 5
+Enter coefficient b: 2
+Enter coefficient c: 6
+It is a complex number and the solutiion is not a real root.
 
 
 
