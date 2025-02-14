@@ -178,15 +178,15 @@ valid input received 5
 ````java[]
 import java.util.Scanner;
 public class prg24 {
-    static int armstrongSum(int num, int power) {
+    static int armstrongsum(int num, int power) {
         if (num == 0)
             return 0;
         int digit = num % 10;
-        return (int) Math.pow(digit, power) + armstrongSum(num / 10, power);
+        return (int) Math.pow(digit, power) + armstrongsum(num / 10, power);
     }
     static boolean isArmstrong(int num) {
         int numDigits = Integer.toString(num).length();
-        return num == armstrongSum(num, numDigits);
+        return num == armstrongsum(num, numDigits);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -197,14 +197,14 @@ public class prg24 {
         if (isArmstrong(num))
             System.out.println(num + " is an Armstrong number.");
         else
-            System.out.println(num + " is NOT an Armstrong number.");
+            System.out.println(num + " is not an Armstrong number.");
     }
 }
 
 OUTPUT:
 
 Enter a number: 60
-60 is NOT an Armstrong number.
+60 is  annot Armstrong number.
 
 ````
 ## 146.Implement binary search in a sorted array. 
