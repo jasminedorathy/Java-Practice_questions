@@ -1111,56 +1111,54 @@ import java.util.*;
 public class prg38 {
 
     public static void main(String[] args) {
-        Scanner s=new Scanner(System.in);
-        System.out.println("  WELCOME TO VENDING MACHINE  ");
+        Scanner s = new Scanner(System.in);
+        System.out.println("  WELCOME TO CAFE  ");
 
-        System.out.println("1. Chips - $2");
-        System.out.println("2. Soda - $3");
-        System.out.println("3. Chocolate - $4");
-        System.out.println("4. Tea - $4");
-        System.out.println("5. Coffee - $6");
+        System.out.println("1. Sandwich");
+        System.out.println("2. Coffee");
+        System.out.println("3. Tea");
+        System.out.println("4. Pastry");
+        System.out.println("5. Juice");
         System.out.println("6. Exit");
 
         System.out.println("Enter your choice");
-        int choice=s.nextInt();
+        int choice = s.nextInt();
 
-        switch(choice) {
+        switch (choice) {
             case 1:
-                System.out.println("You selected chips!  please pay $ 2");
+                System.out.println("You selected Sandwich!");
                 break;
             case 2:
-                System.out.println("You selected soda!  please pay $ 3");
+                System.out.println("You selected Coffee!");
                 break;
             case 3:
-                System.out.println("You selected chocolate!  please pay $ 4");
+                System.out.println("You selected Tea!");
                 break;
             case 4:
-                System.out.println("You selected Tea!  please pay $ 4");
+                System.out.println("You selected Pastry!");
                 break;
-
             case 5:
-                System.out.println("You selected Coffee!  please pay $ 6");
+                System.out.println("You selected Juice!");
                 break;
             case 6:
                 System.out.println("** THANK YOU **");
                 break;
             default:
-                System.out.println("Invalid input! Please select valid choice");
+                System.out.println("Invalid input! Please select a valid choice");
         }
-
     }
-
 }
 
+
 Output:
-  WELCOME TO VENDING MACHINE  
-1. Chips - $2
-2. Soda - $3
-3. Chocolate - $4
-4. Tea - $4
-5. Coffee - $6
+ WELCOME TO CAFE  
+1. Sandwich
+2. Coffee
+3. Tea
+4. Pastry
+5. Juice
 6. Exit
 Enter your choice
-6
-** THANK YOU **
+5
+You selected Juice!
 ````
