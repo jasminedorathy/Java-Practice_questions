@@ -206,15 +206,61 @@ V
 ## 45.Implement a basic menu-driven program using switch-case. 
 ````java[]
 
+import java.util.*;
+public class prg5 {
 
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("*****The Dishes available in our cafe*****");
+        System.out.println("1.Pasta");
+        System.out.println("2.Pizza");
+        System.out.println("3.Burger");
+        System.out.println("4.Icecreams");
+        System.out.println("5.Cappuccino");
+        System.out.println("6.Muffins");
 
+        System.out.println("Enter you choice:");
+        int choice=sc.nextInt();
+        switch(choice) {
+            case 1:
+                System.out.println("Pasta is ready");
+                break;
+            case 2:
+                System.out.println("Pizza is ready");
+                break;
+            case 3:
+                System.out.println("Burger is ready");
+                break;
 
+                case 4:
+                System.out.println("Icecreams is ready");
+                break;
 
+            case 5:
+                System.out.println("Cappuccino is ready");
+                break;
+            case 6:
+                System.out.println("Muffins is ready");
+                break;
+            default:
+                System.out.println("Invalid choice");
 
+        }
+    }
+}
 
+OUtPUT:
 
-
-
+*****The Dishes available in our cafe*****
+1.Pasta
+2.Pizza
+3.Burger
+4.Icecreams
+5.Cappuccino
+6.Muffins
+Enter you choice
+5
+Cappuccino is ready
 
 
 
@@ -654,14 +700,61 @@ u is vowel
 ## 56.Implement a simple menu system for shopping. 
 ````java[]
 
+import java.util.*;
+public class prg5 {
 
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("*****The Dishes available in our cafe*****");
+        System.out.println("1.Pasta");
+        System.out.println("2.Pizza");
+        System.out.println("3.Burger");
+        System.out.println("4.Icecreams");
+        System.out.println("5.Cappuccino");
+        System.out.println("6.Muffins");
 
+        System.out.println("Enter you choice:");
+        int choice=sc.nextInt();
+        switch(choice) {
+            case 1:
+                System.out.println("Pasta is ready");
+                break;
+            case 2:
+                System.out.println("Pizza is ready");
+                break;
+            case 3:
+                System.out.println("Burger is ready");
+                break;
 
+                case 4:
+                System.out.println("Icecreams is ready");
+                break;
 
+            case 5:
+                System.out.println("Cappuccino is ready");
+                break;
+            case 6:
+                System.out.println("Muffins is ready");
+                break;
+            default:
+                System.out.println("Invalid choice");
 
+        }
+    }
+}
 
+OUTPUT:
 
-
+*****The Dishes available in our cafe*****
+1.Pasta
+2.Pizza
+3.Burger
+4.Icecreams
+5.Cappuccino
+6.Muffins
+Enter you choice
+5
+Cappuccino is ready
 
 
 ````
