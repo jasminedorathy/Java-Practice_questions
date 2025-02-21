@@ -602,23 +602,113 @@ Thank you for voting.
 ## 199.Create a simple ATM simulation with deposit/withdraw functions. 
 ````java[]
 
+import java.util.*;
 
+public class prg20 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double balance = 1000.0;
+        int choice;
 
+        do {
+            
+            System.out.println("\nWelcome to Simple ATM");
+            System.out.println("1. Check Balance");
+            System.out.println("2. Deposit Money");
+            System.out.println("3. Withdraw Money");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
 
+            switch (choice) {
+                case 1:
 
+                    System.out.println("Your current balance is: $" + balance);
+                    break;
 
+                case 2:
 
+                    System.out.print("Enter the amount to deposit: $");
+                    double depositAmount = sc.nextDouble();
+                    if (depositAmount > 0) {
+                        balance += depositAmount;
+                        System.out.println("$" + depositAmount + " deposited successfully.");
+                    } else {
+                        System.out.println("Invalid amount. Please enter a positive value.");
+                    }
+                    break;
 
+                case 3:
 
+                    System.out.print("Enter the amount to withdraw: $");
+                    double withdrawAmount = sc.nextDouble();
+                    if (withdrawAmount > 0 && withdrawAmount <= balance) {
+                        balance -= withdrawAmount;
+                        System.out.println("$" + withdrawAmount + " withdrawn successfully.");
+                    } else if (withdrawAmount > balance) {
+                        System.out.println("Insufficient balance.");
+                    } else {
+                        System.out.println("Invalid amount. Please enter a positive value.");
+                    }
+                    break;
 
+                case 4:
 
+                    System.out.println("Thank you for using Simple ATM. Goodbye!");
+                    break;
 
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 4);
 
+        sc.close();
+    }
+}
 
+OUTPUT:
 
+Welcome to Simple ATM
+1. Check Balance
+2. Deposit Money
+3. Withdraw Money
+4. Exit
+Enter your choice: 2
+Enter the amount to deposit: $100
+$100.0 deposited successfully.
 
+Welcome to Simple ATM
+1. Check Balance
+2. Deposit Money
+3. Withdraw Money
+4. Exit
+Enter your choice: 1
+Your current balance is: $1100.0
 
+Welcome to Simple ATM
+1. Check Balance
+2. Deposit Money
+3. Withdraw Money
+4. Exit
+Enter your choice: 3
+Enter the amount to withdraw: $500
+$500.0 withdrawn successfully.
 
+Welcome to Simple ATM
+1. Check Balance
+2. Deposit Money
+3. Withdraw Money
+4. Exit
+Enter your choice: 1
+Your current balance is: $600.0
+
+Welcome to Simple ATM
+1. Check Balance
+2. Deposit Money
+3. Withdraw Money
+4. Exit
+Enter your choice: 4
+Thank you for using Simple ATM. Goodbye!
 
 ````
 ## 200.Write a program to manage student records.
