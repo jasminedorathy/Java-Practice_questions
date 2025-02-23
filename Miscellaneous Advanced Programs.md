@@ -520,20 +520,44 @@ Email: hdfshfgv@gmail.com
 ## 190 .Build a basic database system with file operations. 
 ````java[]
 
+import java.util.*;
+import java.io.*;
+public class prgeg7 {
+
+    public static void main(String[] args) {
+
+        String filename="eg.txt";
+        String con="heyy all welcome to the java boot camp";
+
+        try(BufferedWriter writer=new BufferedWriter(new FileWriter(filename))){
+            writer.write(con);
+            System.out.println("File written Successfully");
+        }
+        catch (IOException e) {
+            System.out.println("An error occurred while writing the file.");
+            e.printStackTrace();
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            System.out.println("Reading from file:");
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the file.");
+            e.printStackTrace();
+        }
+
+    }
+
+}
 
 
+OUTPUT:
 
-
-
-
-
-
-
-
-
-
-
-
+File written Successfully
+Reading from file:
+heyy all welcome to the java boot camp
 
 
 
@@ -795,24 +819,65 @@ Enter your choice: 5
 Exiting
 
 
-
-
-
-
-
-
-
-
-
 ````
 ## 194.Create a dynamic menu-driven program using loops. 
 ````java[]
 
+import java.util.*;
+public class prg5 {
 
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("*****The Dishes available in our cafe*****");
+        System.out.println("1.Pasta");
+        System.out.println("2.Pizza");
+        System.out.println("3.Burger");
+        System.out.println("4.Icecreams");
+        System.out.println("5.Cappuccino");
+        System.out.println("6.Muffins");
 
+        System.out.println("Enter you choice:");
+        int choice=sc.nextInt();
+        switch(choice) {
+            case 1:
+                System.out.println("Pasta is ready");
+                break;
+            case 2:
+                System.out.println("Pizza is ready");
+                break;
+            case 3:
+                System.out.println("Burger is ready");
+                break;
 
+                case 4:
+                System.out.println("Icecreams is ready");
+                break;
 
+            case 5:
+                System.out.println("Cappuccino is ready");
+                break;
+            case 6:
+                System.out.println("Muffins is ready");
+                break;
+            default:
+                System.out.println("Invalid choice");
 
+        }
+    }
+}
+
+OUtPUT:
+
+*****The Dishes available in our cafe*****
+1.Pasta
+2.Pizza
+3.Burger
+4.Icecreams
+5.Cappuccino
+6.Muffins
+Enter you choice
+5
+Cappuccino is ready
 
 
 ````
@@ -1009,43 +1074,134 @@ It's a draw!
 ## 196. Build a currency converter program. 
 ````java[]
 
+import java.util.*;
+
+public class prgeg8 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Currency Converter");
+
+        System.out.print("Enter the exchange rate : ");
+        double exchangeRate = scanner.nextDouble();
 
 
+        System.out.print("Enter the amount in USD: ");
+        double amount = scanner.nextDouble();
 
 
+        double convertedAmount = amount * exchangeRate;
 
 
+        System.out.println(amount + " USD = " + convertedAmount + " Target Currency");
+
+    }
+}
+
+OUTPUT:
+
+Currency Converter
+Enter the exchange rate : 100
+Enter the amount in USD: 50
+50.0 USD = 5000.0 Target Currency
 
 
 ````
 ## 197.Create a program to count the frequency of words in a sentence. 
 ````java[]
 
+import java.util.*;
+
+public class prgeg10 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a sentence: ");
+        String sentence = sc.nextLine();
+
+        String[] words = sentence.split(" ");
+        String[] uniqueWords = new String[words.length];
+        int[] frequency = new int[words.length];
+        int unique= 0;
+
+        for (int i = 0; i < words.length; i++) {
+            boolean found = false;
+            for (int j = 0; j < unique; j++) {
+                if (uniqueWords[j].equals(words[i])) {
+                    frequency[j]++;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                uniqueWords[unique] = words[i];
+                frequency[unique] = 1;
+                unique++;
+            }
+        }
+
+        System.out.println("Word frequencies:");
+        for (int i = 0; i < unique; i++) {
+            System.out.println(uniqueWords[i] + ": " + frequency[i]);
+        }
 
 
-
-
-
-
-
-
-
-
-
-
+    }
+}
+OUTPUT:
+Enter a sentence: hello how are you? Are you having fun learning java?
+Word frequencies:
+hello: 1
+how: 1
+are: 1
+you?: 1
+Are: 1
+you: 1
+having: 1
+fun: 1
+learning: 1
+java?: 1
 
 
 ````
 ## 198.Write a program to find the longest word in a string. 
 ````java[]
 
+import java.util.*;
 
+public class prgeg9 {
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
 
+        String longestWord = findLongestWord(input);
+        System.out.println("Longest word: " + longestWord);
 
+        scanner.close();
+    }
 
+    public static String findLongestWord(String input) {
+        String[] words = input.split(" ");
+        String longestWord = "";
 
+        for (String word : words) {
+            if (word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+
+        return longestWord;
+    }
+}
+
+OUTPUT:
+Enter a string: Hello All today we will be learning about linkedlist in java
+Longest word: linkedlist
 
 
 ````
@@ -1164,17 +1320,111 @@ Thank you for using Simple ATM. Goodbye!
 ## 200.Write a program to manage student records.
 ````java[]
 
+package Nanthu;
+import java.util.*;
+
+class Student {
+    String name;
+    int roll_no;
+    String dept;
+    int mark;
+
+    public Student(String name, int roll_no, String dept, int mark) {
+        this.name = name;
+        this.roll_no = roll_no;
+        this.dept = dept;
+        this.mark = mark;
+    }
+
+    public void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Roll Number: " + roll_no);
+        System.out.println("Department: " + dept);
+        System.out.println("Mark: " + mark);
+    }
+}
+
+public class Main16 {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        ArrayList<Student> a = new ArrayList<>();
+
+        while (true) {
+            System.out.println("\nStudent Detail");
+            System.out.println("1. Add Student");
+            System.out.println("2. Display Student Details");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = s.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter your name: ");
+                    s.nextLine(); // Consume newline
+                    String name = s.nextLine();
+                    System.out.print("Enter your roll number: ");
+                    int roll_no = s.nextInt();
+                    System.out.print("Enter your Department: ");
+                    s.nextLine(); // Consume newline
+                    String dept = s.nextLine();
+                    System.out.print("Enter your Mark: ");
+                    int mark = s.nextInt();
+                    a.add(new Student(name, roll_no, dept, mark));
+                    System.out.println("Successfully Added");
+                    break;
+
+                case 2:
+                    System.out.println("\nStudent Records:");
+                    for (Student student : a) {
+                        student.display();
+                        System.out.println(); // Add a blank line between records
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Exiting... Goodbye!");
+                    s.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+}
+
+OUTPUT:
+
+Student Detail
+1. Add Student
+2. Display Student Details
+3. Exit
+Enter your choice: 1
+Enter your name: jass
+Enter your roll number: 101
+Enter your Department: AI&DS
+Enter your Mark: 470
+Successfully Added
+
+Student Detail
+1. Add Student
+2. Display Student Details
+3. Exit
+Enter your choice: 2
+
+Student Records:
+Name: jass
+Roll Number: 101
+Department: AI&DS
+Mark: 470
 
 
-
-
-
-
-
-
-
-
-
+Student Detail
+1. Add Student
+2. Display Student Details
+3. Exit
+Enter your choice: 3
+Exiting... Goodbye!
 
 
 
