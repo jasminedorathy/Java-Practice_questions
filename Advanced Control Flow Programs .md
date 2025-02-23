@@ -403,7 +403,7 @@ Contact has been added Successfully
 Enter your choice
 1
 Enter the name
-nanthini
+sanya
 Enter the phone num
 963452153
 Contact has been added Successfully
@@ -420,17 +420,56 @@ Thanks for using phonebook ! Good Bye
 ````
 ## 166.Implement a ticket booking system with class and objects. 
 ````java[]
+import java.util.*;
 
+class Ticket {
+    private String passengerName;
+    private int seatNumber;
+    private String destination;
 
+    public Ticket(String passengerName, int seatNumber, String destination) {
+        this.passengerName = passengerName;
+        this.seatNumber = seatNumber;
+        this.destination = destination;
+    }
 
+    public void displayTicket() {
+        System.out.println("Ticket Details:");
+        System.out.println("Passenger Name: " + passengerName);
+        System.out.println("Seat Number: " + seatNumber);
+        System.out.println("Destination: " + destination);
+    }
+}
 
+public class prgeg6 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
+        System.out.print("Enter passenger name: ");
+        String name = sc.nextLine();
 
+        System.out.print("Enter seat number: ");
+        int seatNumber = sc.nextInt();
+        sc.nextLine();
 
+        System.out.print("Enter destination: ");
+        String destination = sc.nextLine();
 
+        Ticket ticket = new Ticket(name, seatNumber, destination);
+        ticket.displayTicket();
 
+        sc.close();
+    }
+}
 
-
+OUTPUT:
+Enter passenger name: jass
+Enter seat number: 2
+Enter destination: ooty
+Ticket Details:
+Passenger Name: jass
+Seat Number: 2
+Destination: ooty
 
 
 
