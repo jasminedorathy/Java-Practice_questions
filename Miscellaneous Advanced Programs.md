@@ -487,7 +487,6 @@ public class prg46 {
 
 ## OUTPUT:
 
-````ja]va
 Enter your name
 jasmine
 Enter your age
@@ -667,6 +666,133 @@ In words: One Thousand Five Hundred Twenty Two
 ## 193 .Build a simple bank account system with balance checking. 
 ````java[]
 
+import java.util.*;
+
+public class BankAccount {
+    private String accountNumber;
+    private String accountHolderName;
+    private double balance;
+
+    public BankAccount(String accountNumber, String accountHolderName, double initialBalance) {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        this.balance = initialBalance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } else {
+            System.out.println("Invalid withdrawal amount or insufficient balance.");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void displayAccountDetails() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Account Holder: " + accountHolderName);
+        System.out.println("Balance: " + balance);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter account number: ");
+        String accountNumber = sc.nextLine();
+
+        System.out.print("Enter account holder name: ");
+        String accountHolderName = sc.nextLine();
+
+        System.out.print("Enter initial balance: ");
+        double initialBalance = sc.nextDouble();
+
+        BankAccount account = new BankAccount(accountNumber, accountHolderName, initialBalance);
+
+        while (true) {
+            System.out.println("\nChoose an option:");
+            System.out.println("1. Deposit");
+            System.out.println("2. Withdraw");
+            System.out.println("3. Check Balance");
+            System.out.println("4. Display Account Details");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter deposit amount: ");
+                    double depositAmount = sc.nextDouble();
+                    account.deposit(depositAmount);
+                    break;
+                case 2:
+                    System.out.print("Enter withdrawal amount: ");
+                    double withdrawAmount = sc.nextDouble();
+                    account.withdraw(withdrawAmount);
+                    break;
+                case 3:
+                    System.out.println("Current Balance: " + account.getBalance());
+                    break;
+                case 4:
+                    account.displayAccountDetails();
+                    break;
+                case 5:
+                    System.out.println("Exiting...");
+                    sc.close();
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+}
+
+
+OUTPUT:
+
+Enter account number: 12354689
+Enter account holder name: jasmine
+Enter initial balance: 500
+
+Choose an option:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Display Account Details
+5. Exit
+Enter your choice: 1
+Enter deposit amount: 200
+Deposited: 200.0
+
+Choose an option:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Display Account Details
+5. Exit
+Enter your choice: 3
+Current Balance: 700.0
+
+Choose an option:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Display Account Details
+5. Exit
+Enter your choice: 5
+Exiting
 
 
 
@@ -681,6 +807,7 @@ In words: One Thousand Five Hundred Twenty Two
 ````
 ## 194.Create a dynamic menu-driven program using loops. 
 ````java[]
+
 
 
 
