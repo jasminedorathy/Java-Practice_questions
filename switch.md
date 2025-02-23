@@ -511,14 +511,90 @@ Num of Days: 31
 ## 51.Implement a simple banking system with switch-case. 
 ````java[]
 
+import java.util.*;
 
+public class prg11{
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double balance = 0;
 
+        while (true) {
+            System.out.println("\n1. Deposit\n2. Withdraw\n3. Check Balance\n4. Exit");
+            System.out.print("Enter choice: ");
+            int choice = scanner.nextInt();
 
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter deposit amount: ");
+                    double depositAmount = scanner.nextDouble();
+                    if (depositAmount > 0) {
+                        balance += depositAmount;
+                        System.out.println("Deposited: " + depositAmount);
+                    } else {
+                        System.out.println("Invalid amount.");
+                    }
+                    break;
 
+                case 2:
+                    System.out.print("Enter withdrawal amount: ");
+                    double withdrawAmount = scanner.nextDouble();
+                    if (withdrawAmount > 0 && withdrawAmount <= balance) {
+                        balance -= withdrawAmount;
+                        System.out.println("Withdrawn: " + withdrawAmount);
+                    } else {
+                        System.out.println("Invalid amount or insufficient balance.");
+                    }
+                    break;
 
+                case 3:
+                    System.out.println("Balance: " + balance);
+                    break;
 
+                case 4:
+                    System.out.println("Exit");
+                    scanner.close();
+                    return;
 
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        }
+    }
+}
+
+OUTPUT:
+
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Exit
+Enter choice: 
+1
+Enter deposit amount: 500
+Deposited: 500.0
+
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Exit
+Enter choice: 2
+Enter withdrawal amount: 200
+Withdrawn: 200.0
+
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Exit
+Enter choice: 3
+Balance: 300.0
+
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Exit
+Enter choice: 4
+Exit
 
 
 
