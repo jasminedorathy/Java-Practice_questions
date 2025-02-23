@@ -140,13 +140,87 @@ Generated Password: HiieAd*!
 ## 184.Create a simple command-line chat application. 
 ````java[]
 
+import java.util.*;
 
+class ChatApplication {
+    public void startChat() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Simple Command-Line Chat Application");
+        System.out.println("Type 'exit' to end the chat.");
 
+        String message;
+        do {
+            System.out.print("You: ");
+            message = scanner.nextLine().trim();
 
+            if (message.isEmpty()) {
+                System.out.println("Bot: Please type something!");
+                continue;
+            }
 
+            if (!message.equalsIgnoreCase("exit")) {
+                System.out.println("Bot: " + generateResponse(message));
+            } else {
+                System.out.print("Are you sure you want to exit? (yes/no): ");
+                String confirmation = scanner.nextLine().trim();
+                if (confirmation.equalsIgnoreCase("yes")) {
+                    break;
+                } else {
+                    message = "";
+                }
+            }
+        } while (true);
 
+        System.out.println("Chat ended. Goodbye!");
+        scanner.close();
+    }
 
+    private String generateResponse(String input) {
+        input = input.toLowerCase();
 
+        if (input.contains("hello") || input.contains("hi")) {
+            return "Hello! How can I assist you today?";
+        } else if (input.contains("how are you")) {
+            return "I'm just a bot, but I'm here to help! How about you?";
+        } else if (input.contains("thank you") || input.contains("thanks")) {
+            return "You're welcome! Is there anything else I can help with?";
+        } else if (input.contains("bye")) {
+            return "Goodbye! Have a great day!";
+        } else if (input.contains("name")) {
+            return "I'm just a simple chat bot. I don't have a name, but you can call me Bot!";
+        } else if (input.contains("weather")) {
+            return "I'm not connected to the internet, but I hope the weather is nice where you are!";
+        } else if (input.contains("joke")) {
+            return "Why don't scientists trust atoms? Because they make up everything!";
+        } else {
+            return "That's interesting! Can you tell me more?";
+        }
+    }
+}
+
+public class prgeg2 {
+    public static void main(String[] args) {
+        ChatApplication chatApp = new ChatApplication();
+        chatApp.startChat();
+    }
+}
+
+OUTPUT:
+Simple Command-Line Chat Application
+Type 'exit' to end the chat.
+You: hello
+Bot: Hello! How can I assist you today?
+You: how are you
+Bot: I'm just a bot, but I'm here to help! How about you?
+You: bye
+Bot: Goodbye! Have a great day!
+You: 
+Bot: Please type something!
+You:  
+Bot: Please type something!
+You: exit
+Are you sure you want to exit? (yes/no): yes
+Chat ended. Goodbye!
 
 
 
@@ -283,15 +357,50 @@ Hello all I feel so blessed and honoured to be part of this program
 ````
 ## 187.Implement string compression (e.g., "aaabbb" -> "a3b3"). 
 ````java[]
+import java.util.*;
+public class prgeg3 {
 
+    public static String compress(String input) {
+        if (input == null || input.isEmpty()) {
+            return input;
+        }
 
+        StringBuilder comp = new StringBuilder();
+        int count = 1;
 
+        for (int i = 0; i < input.length(); i++) {
+            if (i + 1 < input.length() && input.charAt(i) == input.charAt(i + 1)) {
+                count++;
+            } else {
+                comp.append(input.charAt(i));
+                if (count > 1) {
+                    comp.append(count);
+                }
+                count = 1;
+            }
+        }
 
+        return comp.length() < input.length() ? comp.toString() : input;
+    }
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
+        System.out.print("Enter a string to compress: ");
+        String input = sc.nextLine();
+        String compressed = compress(input);
 
+        System.out.println("Original: " + input);
+        System.out.println("Compressed: " + compressed);
 
+        sc.close();
+    }
+}
 
+OUTPUT:
+Enter a string to compress: aaabbbccdd
+Original: aaabbbccdd
+Compressed: a3b3c2d2
 
 
 ````
@@ -507,16 +616,51 @@ Thank you for voting.
 ## 192.Create a program to convert numbers to words. 
 ````java[]
 
+import java.util.*;
+public class prgeg4{
 
+    private static final String[] units = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    private static final String[] teens = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    private static final String[] tens = {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 
+    public static String convertToWords(int number) {
+        if (number == 0) {
+            return "Zero";
+        }
+        return convert(number).trim();
+    }
 
+    private static String convert(int number) {
+        if (number < 10) {
+            return units[number];
+        } else if (number < 20) {
+            return teens[number - 10];
+        } else if (number < 100) {
+            return tens[number / 10] + " " + convert(number % 10);
+        } else if (number < 1000) {
+            return units[number / 100] + " Hundred " + convert(number % 100);
+        } else if (number < 1_000_000) {
+            return convert(number / 1000) + " Thousand " + convert(number % 1000);
+        } else if (number < 1_000_000_000) {
+            return convert(number / 1_000_000) + " Million " + convert(number % 1_000_000);
+        } else {
+            return "Number out of range";
+        }
+    }
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        String words = convertToWords(number);
+        System.out.println("In words: " + words);
+        sc.close();
+    }
+}
 
-
-
-
-
-
+OUTPUT:
+Enter a number: 1522
+In words: One Thousand Five Hundred Twenty Two
 
 
 ````
